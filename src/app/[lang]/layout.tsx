@@ -25,9 +25,14 @@ export async function generateMetadata(): Promise<Metadata> {
     title: dict.meta.title,
     description: dict.meta.description,
     alternates: { canonical: `/${locale}`, languages: { fr: "/fr", en: "/en" } },
-    // L'image d'aperçu vient de opengraph-image.tsx, ajoutée automatiquement par Next
+    authors: [{ name: "Alexandre Mandra", url: siteUrl }],
+    creator: "Alexandre Mandra",
+    // L'image d'aperçu vient de opengraph-image.tsx, ajoutée automatiquement par Next.
+    // Type "article" : c'est là que LinkedIn lit l'auteur et la date de publication (mise en ligne du site)
     openGraph: {
-      type: "website",
+      type: "article",
+      publishedTime: "2026-11-04T00:00:00.000Z",
+      authors: ["Alexandre Mandra"],
       siteName: "Alexandre Mandra",
       title: dict.meta.title,
       description: dict.meta.description,
