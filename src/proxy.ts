@@ -27,6 +27,7 @@ export function proxy(request: NextRequest) {
   return NextResponse.redirect(url);
 }
 
+// Exclus : fichiers internes de Next, fichiers avec extension, et l'icône iOS (servie à la racine, sans extension)
 export const config = {
-  matcher: ["/((?!_next|.*\\..*).*)"],
+  matcher: ["/((?!_next|apple-icon|.*\\..*).*)"],
 };
