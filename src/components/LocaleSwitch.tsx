@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { localeCookie, locales, type Locale } from "@/i18n/config";
 
@@ -16,8 +15,11 @@ export function LocaleSwitch({ current, label }: Props) {
     document.cookie = `${localeCookie}=${other}; path=/; max-age=31536000; samesite=lax`;
   };
 
+  // Lien classique, pas <Link> : changer de langue change la mise en page racine, et une navigation
+  // côté client recrée <html> sans l'attribut data-theme posé par le script de démarrage.
+  // Un vrai chargement de page relance ce script et conserve le thème choisi.
   return (
-    <Link
+    <a
       href={href}
       hrefLang={other}
       onClick={remember}
@@ -30,6 +32,6 @@ export function LocaleSwitch({ current, label }: Props) {
           <span className={l === current ? "font-medium text-ink" : ""}>{l.toUpperCase()}</span>
         </span>
       ))}
-    </Link>
+    </a>
   );
 }
