@@ -81,6 +81,11 @@
       "power": "puissance"
     },
     "items": {
+      "hunter": {
+        "tag": "Data & IA · projet perso 2026",
+        "title": "hallucination-hunter",
+        "desc": "Un LLM local (Qwen 3 via Ollama) liste les jeux vidéo de 22 studios, et chaque réponse est vérifiée contre Wikidata. Résultat : seule une minorité des jeux cités est juste, et le modèle prête plus souvent de vrais jeux au mauvais studio qu'il n'en invente. Avec un tableau de bord Streamlit pour suivre les mesures et tester n'importe quel studio."
+      },
       "blindtest": {
         "tag": "Moteur temps réel · en cours",
         "title": "Blind Test",
@@ -106,6 +111,15 @@
         "title": "Un Worms en Python",
         "desc": "Un jeu d'artillerie au tour par tour inspiré de Worms, codé à deux avec Pygame : trajectoires calculées avec la gravité, terrain généré aléatoirement, plusieurs armes, explosions et points de vie. Quelques nuits blanches au compteur."
       }
+    },
+    "hunter": {
+      "studio": "Studio interrogé :",
+      "confirmed": "confirmé",
+      "contradicted": "contredit",
+      "notFound": "introuvable",
+      "strict": "Précision stricte",
+      "verifiable": "Précision vérifiable",
+      "recall": "Rappel"
     }
   },
   "journey": {

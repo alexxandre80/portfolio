@@ -5,11 +5,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { profile, projects } from "@/data/projects";
+import { hunterStats, profile, projects } from "@/data/projects";
 import { Blobs } from "./Blobs";
 import { SectionHead } from "./SectionHead";
 import { EngineDiagram } from "./EngineDiagram";
-import { ArtilleryVisual, TowerVisual, WaveVisual, WheelVisual } from "./ProjectVisuals";
+import { ArtilleryVisual, TowerVisual, VerdictVisual, WaveVisual, WheelVisual } from "./ProjectVisuals";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -75,6 +75,7 @@ export function Projects({ dict }: { dict: Dictionary["projects"] }) {
                 {p.visual === "wave" && <WaveVisual />}
                 {p.visual === "tower" && <TowerVisual />}
                 {p.visual === "artillery" && <ArtilleryVisual labels={dict.artillery} />}
+                {p.visual === "verdict" && <VerdictVisual labels={dict.hunter} stats={hunterStats} />}
                 {!p.visual && <Chips items={p.stack} />}
               </Tag>
             );

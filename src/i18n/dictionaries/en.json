@@ -81,6 +81,11 @@
       "power": "power"
     },
     "items": {
+      "hunter": {
+        "tag": "Data & AI · 2026 side project",
+        "title": "hallucination-hunter",
+        "desc": "A local LLM (Qwen 3 via Ollama) lists the video games of 22 studios, and every answer is checked against Wikidata. Result: only a minority of the cited games are right, and the model credits real games to the wrong studio more often than it invents them. With a Streamlit dashboard to follow the runs and test any studio."
+      },
       "blindtest": {
         "tag": "Real-time engine · in progress",
         "title": "Blind Test",
@@ -106,6 +111,15 @@
         "title": "Worms in Python",
         "desc": "A turn-based artillery game inspired by Worms, built as a duo with Pygame: gravity-based trajectories, randomly generated terrain, several weapons, explosions and health points. A few sleepless nights on the clock."
       }
+    },
+    "hunter": {
+      "studio": "Studio asked:",
+      "confirmed": "confirmed",
+      "contradicted": "contradicted",
+      "notFound": "not found",
+      "strict": "Strict precision",
+      "verifiable": "Verifiable precision",
+      "recall": "Recall"
     }
   },
   "journey": {

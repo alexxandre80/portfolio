@@ -298,3 +298,96 @@ export function ArtilleryVisual({ labels }: { labels: { angle: string; power: st
     </Frame>
   );
 }
+
+/* hallucination-hunter : de vrais jeux cités pour Ubisoft Montréal reçoivent leur verdict, puis les scores se remplissent */
+
+type HunterLabels = {
+  studio: string;
+  confirmed: string;
+  contradicted: string;
+  notFound: string;
+  strict: string;
+  verifiable: string;
+  recall: string;
+};
+
+// Réponses réelles de Qwen 3 8B, vérifiées contre Wikidata (résultats publiés dans le dépôt du projet)
+const hunterRows = [
+  { title: "Assassin's Creed II", verdict: "confirmed" },
+  { title: "Rainbow Six Siege", verdict: "confirmed" },
+  { title: "Watch Dogs: Legion", verdict: "contradicted", credit: "Ubisoft Toronto" },
+  { title: "Assassin's Creed Odyssey", verdict: "contradicted", credit: "Ubisoft Quebec" },
+  { title: "Rainbow Six Siege: Operation Vortex", verdict: "notFound" },
+] as const;
+
+const verdictStyle = {
+  confirmed: { icon: "✓", className: "bg-ok/15 text-ok" },
+  contradicted: { icon: "!", className: "bg-amber-500/15 text-amber-600 dark:text-amber-400" },
+  notFound: { icon: "?", className: "bg-chip text-muted" },
+} as const;
+
+export function VerdictVisual({ labels, stats }: { labels: HunterLabels; stats: { strict: number; verifiable: number; recall: number } }) {
+  const scope = useRef<HTMLDivElement>(null);
+  const bars = [
+    { label: labels.verifiable, value: stats.verifiable },
+    { label: labels.strict, value: stats.strict },
+    { label: labels.recall, value: stats.recall },
+  ];
+
+  useGSAP(
+    () => {
+      if (reduced()) return;
+      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1, delay: 0.6 });
+      tl.set(".hrow", { opacity: 0, x: -12 })
+        .set(".hbadge", { scale: 0 })
+        .set(".hfill", { width: 0 });
+      gsap.utils.toArray<HTMLElement>(".hrow").forEach((row) => {
+        tl.to(row, { opacity: 1, x: 0, duration: 0.35, ease: "power2.out" })
+          .to(row.querySelector(".hbadge"), { scale: 1, duration: 0.3, ease: "back.out(3)" }, "+=0.25");
+      });
+      tl.to(".hfill", { width: (i, el) => `${(el as HTMLElement).dataset.value}%`, duration: 1, stagger: 0.15, ease: "power2.out" }, "+=0.2")
+        .to({}, { duration: 3 })
+        .to(".hrow", { opacity: 0, duration: 0.4, stagger: 0.05 });
+      return pauseOffscreen(scope.current, [tl]);
+    },
+    { scope },
+  );
+
+  return (
+    <Frame>
+      <div ref={scope} className="grid gap-6 px-6 py-5 md:grid-cols-[1.4fr_1fr]">
+        <div>
+          <div className="mb-2 font-mono text-[11px] text-muted">{labels.studio} Ubisoft Montréal</div>
+          <ul className="grid gap-1.5">
+            {hunterRows.map((row) => {
+              const style = verdictStyle[row.verdict];
+              return (
+                <li key={row.title} className="hrow flex items-center gap-2.5 text-[13px]">
+                  <span className={`hbadge grid size-5 shrink-0 place-items-center rounded-full font-mono text-[11px] font-semibold ${style.className}`}>{style.icon}</span>
+                  <span className="truncate">{row.title}</span>
+                  <span className="ml-auto shrink-0 font-mono text-[11px] text-muted">
+                    {labels[row.verdict]}
+                    {"credit" in row ? ` · ${row.credit}` : ""}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="grid content-center gap-3">
+          {bars.map((bar) => (
+            <div key={bar.label}>
+              <div className="mb-1 flex justify-between font-mono text-[11px] text-muted">
+                <span>{bar.label}</span>
+                <span className="text-ink">{bar.value} %</span>
+              </div>
+              <div className="h-1.5 overflow-hidden rounded-full bg-chip">
+                <span className="hfill block h-full rounded-full bg-linear-to-r from-accent to-violet-500" data-value={bar.value} style={{ width: `${bar.value}%` }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Frame>
+  );
+}
