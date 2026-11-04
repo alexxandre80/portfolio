@@ -1,0 +1,336 @@
+{
+  "meta": {
+    "title": "Alexandre Mandra · Software Engineer",
+    "description": "Software Engineer à Paris : collecte de données web, pipelines d'ingestion et IA générative appliquée."
+  },
+  "nav": {
+    "projects": "Projets",
+    "journey": "Parcours",
+    "method": "Méthode",
+    "about": "À propos",
+    "contact": "Me contacter",
+    "theme": "Changer de thème",
+    "menu": "Ouvrir le menu",
+    "language": "Switch to English"
+  },
+  "hero": {
+    "badge": "Software Engineer · Paris",
+    "title": "Développeur, je construis des outils",
+    "highlight": "qui tiennent la route.",
+    "lead": "Collecte de données, IA appliquée, applications temps réel. Ce qui me plaît : concevoir un projet de A à Z, résoudre les problèmes techniques en chemin, et voir des gens utiliser ce que j'ai construit.",
+    "ctaProjects": "Voir les projets",
+    "ctaLinkedin": "LinkedIn",
+    "skills": [
+      {
+        "label": "Backend",
+        "value": "PHP · Python · Node"
+      },
+      {
+        "label": "Data",
+        "value": "Crawling · ETL"
+      },
+      {
+        "label": "IA",
+        "value": "API Claude"
+      }
+    ]
+  },
+  "pipeline": {
+    "title": "pipeline.run",
+    "steps": [
+      {
+        "title": "Collecte",
+        "desc": "Collecteurs distribués, navigateurs headless"
+      },
+      {
+        "title": "Normalisation",
+        "desc": "Schéma commun, nettoyage"
+      },
+      {
+        "title": "Déduplication",
+        "desc": "Contrôle qualité automatique"
+      },
+      {
+        "title": "Enrichissement IA",
+        "desc": "Classification, extraction"
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Projets",
+    "title": "Ce que j'ai construit",
+    "lead": "Au travail, je construis des systèmes de données. Sur mon temps libre, je construis surtout des jeux : c'est là que j'expérimente le temps réel, la physique et le multijoueur.",
+    "github": "Tout voir sur GitHub",
+    "engine": {
+      "host": "Animateur",
+      "hostSub": "régie",
+      "server": "Serveur",
+      "players": "Joueurs",
+      "playersSub": "mobiles",
+      "events": {
+        "buzz": "buzz",
+        "verdict": "grant_point",
+        "score": "scores_updated"
+      }
+    },
+    "wheel": {
+      "pick": "Anime le daily aujourd'hui"
+    },
+    "artillery": {
+      "angle": "angle",
+      "power": "puissance"
+    },
+    "items": {
+      "blindtest": {
+        "tag": "Moteur temps réel · en cours",
+        "title": "Blind Test",
+        "desc": "Le moteur d'un blind test multijoueur : salles, buzzers, scores et chrono synchronisés en temps réel entre l'animateur et les joueurs, qui rejoignent la partie depuis leur mobile par QR code. Le chrono est géré par le serveur : il se met en pause au premier buzz et repart si la réponse est fausse."
+      },
+      "wheel": {
+        "tag": "Web app · utilisée au quotidien",
+        "title": "Roue de la fortune",
+        "desc": "Chaque matin, mon équipe la fait tourner pour désigner qui anime le daily meeting. Tirage animé, mode TV, sauvegarde automatique."
+      },
+      "dispatch": {
+        "tag": "Desktop · prototype",
+        "title": "Dispatch Dub",
+        "desc": "L'idée : doubler en français Dispatch, un jeu narratif qui n'existe qu'en anglais. J'ai compris comment le jeu stocke ses dialogues, puis créé une app Electron qui remplace les fichiers audio selon la langue choisie par le joueur. Le projet s'est arrêté faute d'équipe de doubleurs."
+      },
+      "towerdash": {
+        "tag": "Jeu mobile · projet d'études 2019",
+        "title": "TowerDash",
+        "desc": "Un battle royale en low poly, développé en équipe à l'ESGI : le but était d'atteindre le sommet d'une tour en éliminant ses adversaires. Le jeu tournait sur mobile, et un site web récapitulait les scores des parties."
+      },
+      "worms": {
+        "tag": "Jeu · projet d'études 2019",
+        "title": "Un Worms en Python",
+        "desc": "Un jeu d'artillerie au tour par tour inspiré de Worms, codé à deux avec Pygame : trajectoires calculées avec la gravité, terrain généré aléatoirement, plusieurs armes, explosions et points de vie. Quelques nuits blanches au compteur."
+      }
+    }
+  },
+  "journey": {
+    "eyebrow": "Parcours",
+    "title": "Huit ans de développement",
+    "experienceTitle": "Expérience",
+    "educationTitle": "Formation",
+    "certificationsTitle": "Certifications",
+    "experience": [
+      {
+        "period": "avr. 2022 → aujourd'hui",
+        "company": "Semantiweb",
+        "role": "Software Engineer",
+        "place": "Paris",
+        "desc": "Développement backend et data acquisition pour une agence de market intelligence (Voice of Consumer).",
+        "bullets": [
+          "Conception et opération d'un parc de collecteurs web distribués",
+          "Pipelines d'ingestion : normalisation, déduplication, monitoring de la qualité des données",
+          "Intégration de l'IA générative : prompt engineering, assistants multi-tours, API Anthropic, Claude Code",
+          "Développement et évolution de l'intranet utilisé par les équipes d'analyse"
+        ],
+        "stack": [
+          "PHP",
+          "Python",
+          "MySQL",
+          "MongoDB",
+          "Docker",
+          "AWS S3",
+          "Playwright",
+          "Puppeteer"
+        ]
+      },
+      {
+        "period": "oct. 2020 → mars 2022",
+        "company": "Numacom",
+        "role": "Développeur web",
+        "place": "Thézy-Glimont",
+        "desc": "Développement et maintenance de sites vitrines et e-commerce pour des clients PME.",
+        "bullets": [
+          "Conception d'un framework PHP interne réutilisé sur les projets clients : back-office, blog, catalogue produits"
+        ],
+        "stack": [
+          "PHP",
+          "MySQL",
+          "jQuery",
+          "Git"
+        ]
+      },
+      {
+        "period": "sept. 2018 → sept. 2020",
+        "company": "Agence ici",
+        "role": "Développeur web junior",
+        "place": "Amiens",
+        "desc": "Développement de sites vitrines pour des clients d'agence.",
+        "bullets": [],
+        "stack": [
+          "PHP",
+          "MySQL",
+          "jQuery",
+          "CodeIgniter"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "period": "2019 → 2021",
+        "school": "ESGI",
+        "degree": "Expert en ingénierie de l'informatique et des systèmes d'information",
+        "note": "Bac+5, RNCP niveau 7, en alternance"
+      },
+      {
+        "period": "2018 → 2019",
+        "school": "ESGI",
+        "degree": "Bachelor 3D & Jeux Vidéo",
+        "note": ""
+      },
+      {
+        "period": "2016 → 2018",
+        "school": "La Providence Amiens",
+        "degree": "BTS Systèmes numériques",
+        "note": ""
+      }
+    ],
+    "certifications": [
+      "Claude Code 101",
+      "Software Development with Claude Code"
+    ]
+  },
+  "method": {
+    "eyebrow": "Méthode",
+    "title": "Comment je travaille",
+    "cards": {
+      "idea": {
+        "title": "De l'idée au projet",
+        "text": "Je commence par lister les fonctionnalités dont le projet a besoin. S'il dépend d'API ou de services externes, je compare ce qui existe et ce que ça coûte avant de choisir."
+      },
+      "ai": {
+        "title": "L'IA comme outil, pas comme remplaçant",
+        "text": "Je décris le projet à Claude le plus précisément possible, il propose un plan, je le corrige, puis on avance étape par étape en testant chaque aspect au fur et à mesure. Pour moi, l'IA ne remplace pas le développeur : c'est un outil qui me rend plus créatif et plus productif.",
+        "steps": [
+          "Décrire",
+          "Planifier",
+          "Corriger",
+          "Coder",
+          "Tester"
+        ]
+      },
+      "data": {
+        "title": "Des données fiables",
+        "text": "Une donnée n'a de valeur que si on peut lui faire confiance. Normalisation, déduplication et monitoring de la qualité font partie de mes pipelines."
+      },
+      "secure": {
+        "title": "Sécurisé, et vraiment utilisé",
+        "text": "Deux choses comptent le plus pour moi : qu'un projet soit sûr, et qu'il plaise à ceux qui s'en servent. Un outil que personne n'utilise n'a pas atteint son but."
+      },
+      "code": {
+        "title": "Du code qu'on peut reprendre",
+        "text": "J'aime laisser ma patte sur un projet, mais d'une façon que la personne qui passera derrière moi puisse comprendre et reprendre sans difficulté."
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "À propos",
+    "title": "Un détour par le jeu vidéo, un retour au web",
+    "paragraphs": [
+      "J'ai découvert le développement pendant mon BTS Systèmes numériques, à Amiens. C'est là que la porte s'est ouverte.",
+      "Je me suis ensuite lancé dans un Bachelor 3D & Jeux Vidéo à l'ESGI : travailler dans le jeu vidéo était un objectif. Mais au fil de l'année, ce n'était plus ce qui me plaisait. Je suis revenu à mes premiers amours, le web, et j'ai poursuivi jusqu'au diplôme d'Expert en ingénierie informatique.",
+      "Aujourd'hui je travaille sur la donnée et l'IA appliquée, et ce qui me motive n'a pas changé : construire quelque chose de A à Z, résoudre les problèmes qui se présentent, et voir des gens s'en servir.",
+      "J'ai aussi toujours des idées de projets en tête. Beaucoup restent à l'état d'idée ; celles qui aboutissent sont sur cette page."
+    ],
+    "facts": [
+      {
+        "label": "Basé à",
+        "value": "Paris, Île-de-France"
+      },
+      {
+        "label": "Expérience",
+        "value": "8 ans de développement"
+      },
+      {
+        "label": "Formation",
+        "value": "Bac+5, ESGI"
+      },
+      {
+        "label": "Hors code",
+        "value": "Jeux vidéo, culture japonaise"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Parlons-en",
+    "lead": "Une question, un projet, une idée ? Écrivez-moi, je vous réponds rapidement.",
+    "elsewhere": "Ou retrouvez-moi sur",
+    "name": "Nom",
+    "email": "Email",
+    "topic": "Sujet",
+    "topics": {
+      "question": "Échanger / question",
+      "project": "Un projet perso ou une idée",
+      "other": "Autre"
+    },
+    "message": "Message",
+    "messagePlaceholder": "Dites-m'en un peu plus…",
+    "submit": "Envoyer",
+    "sending": "Envoi…",
+    "privacy": "Vos informations me sont transmises par email et servent uniquement à vous répondre. Elles ne sont pas stockées sur ce site.",
+    "successTitle": "Message envoyé",
+    "successText": "Merci ! Je vous réponds dès que possible.",
+    "again": "Envoyer un autre message",
+    "errors": {
+      "invalid": "Certains champs sont à vérifier.",
+      "captcha": "La vérification anti-spam a échoué, merci de réessayer.",
+      "send": "L'envoi a échoué. Réessayez plus tard ou écrivez-moi sur LinkedIn."
+    }
+  },
+  "footer": {
+    "built": "Conçu et développé avec Next.js, GSAP et Lenis.",
+    "legal": "Mentions légales"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "text": "Cette page n'existe pas, ou plus. Le reste du site, lui, est bien là.",
+    "back": "Retour à l'accueil"
+  },
+  "legal": {
+    "title": "Mentions légales et confidentialité",
+    "updated": "Dernière mise à jour : novembre 2026",
+    "back": "Retour à l'accueil",
+    "sections": [
+      {
+        "title": "Éditeur du site",
+        "body": [
+          "Ce site est un site personnel et non commercial, édité par Alexandre Mandra, développeur basé à Paris.",
+          "Directeur de la publication : Alexandre Mandra. Contact : via le formulaire de contact du site."
+        ]
+      },
+      {
+        "title": "Hébergement",
+        "body": [
+          "Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis (vercel.com)."
+        ]
+      },
+      {
+        "title": "Propriété intellectuelle",
+        "body": [
+          "Les textes, visuels et le code de ce site appartiennent à Alexandre Mandra, sauf mention contraire.",
+          "Les logos des technologies citées appartiennent à leurs détenteurs respectifs ; les icônes proviennent des projets Simple Icons (licence CC0) et Devicon (licence MIT)."
+        ]
+      },
+      {
+        "title": "Formulaire de contact et données personnelles",
+        "body": [
+          "Les informations saisies dans le formulaire (nom, email, sujet, message) servent uniquement à vous répondre. Elles sont transmises par email via le service Resend et ne sont pas stockées sur ce site.",
+          "Le formulaire est protégé contre le spam par Cloudflare Turnstile, qui analyse des signaux techniques de votre navigateur pour distinguer un humain d'un robot.",
+          "Vercel, Resend et Cloudflare sont des prestataires établis aux États-Unis ; leurs traitements sont encadrés par leurs propres engagements contractuels et politiques de confidentialité.",
+          "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et d'effacement de vos données. Pour l'exercer, utilisez le formulaire de contact. Vous pouvez aussi adresser une réclamation à la CNIL (cnil.fr)."
+        ]
+      },
+      {
+        "title": "Cookies et stockage local",
+        "body": [
+          "Ce site n'utilise ni cookie publicitaire ni outil de mesure d'audience. Il enregistre seulement deux préférences dans votre navigateur : la langue choisie (cookie NEXT_LOCALE) et le thème clair ou sombre (stockage local). Ces éléments sont nécessaires au fonctionnement du site et ne demandent pas de consentement."
+        ]
+      }
+    ]
+  }
+}

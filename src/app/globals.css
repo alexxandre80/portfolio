@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bg: #f5f5f4;
+  --ink: #18181b;
+  --muted: #6b6b73;
+  --line: #18181b14;
+  --accent: #3b5bdb;
+  --accent-soft: #3b5bdb18;
+  --ok: #16a34a;
+  --chip: #18181b0d;
+  --glass: rgb(255 255 255 / 0.55);
+  --glass-strong: rgb(255 255 255 / 0.72);
+  --glass-border: rgb(255 255 255 / 0.8);
+  --glass-hi: inset 0 1px 0 rgb(255 255 255 / 0.9), inset 0 -1px 0 rgb(0 0 0 / 0.04);
+  --shadow: 0 1px 2px #0000000a, 0 20px 50px -20px #1e2a6b33;
+  --spot: #ffffff55;
+  --blob-1: #7c9cff;
+  --blob-2: #c4a7ff;
+  --blob-3: #7fe3d6;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #09090b;
+  --ink: #f4f4f5;
+  --muted: #a1a1aa;
+  --line: #ffffff14;
+  --accent: #7c9cff;
+  --accent-soft: #7c9cff22;
+  --ok: #4ade80;
+  --chip: #ffffff12;
+  --glass: rgb(24 24 30 / 0.45);
+  --glass-strong: rgb(24 24 30 / 0.62);
+  --glass-border: rgb(255 255 255 / 0.1);
+  --glass-hi: inset 0 1px 0 rgb(255 255 255 / 0.12), inset 0 -1px 0 rgb(0 0 0 / 0.3);
+  --shadow: 0 1px 2px #0006, 0 30px 60px -20px #000c;
+  --spot: #7c9cff26;
+  --blob-1: #2f4bd6;
+  --blob-2: #6d3fd1;
+  --blob-3: #0f8f80;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-chip: var(--chip);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@utility glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-hi), var(--shadow);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+
+  @media (max-width: 768px) {
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+  }
+}
+
+@utility glass-inner {
+  background: var(--glass-strong);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-hi);
+}
+
+@utility text-gradient {
+  background: linear-gradient(100deg, var(--accent), #8b5cf6 60%, #14b8a6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  transition: background-color 0.4s, color 0.4s;
+}
