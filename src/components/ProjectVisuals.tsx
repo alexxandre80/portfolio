@@ -337,17 +337,33 @@ export function VerdictVisual({ labels, stats }: { labels: HunterLabels; stats: 
   useGSAP(
     () => {
       if (reduced()) return;
+      const fills = gsap.utils.toArray<HTMLElement>(".hfill");
+      const values = gsap.utils.toArray<HTMLElement>(".hvalue");
+      // Les pourcentages suivent le remplissage des barres au lieu d'être affichés en permanence
+      const counters = fills.map(() => ({ value: 0 }));
+      const render = () => values.forEach((el, i) => { el.textContent = `${Math.round(counters[i].value)} %`; });
+
       const tl = gsap.timeline({ repeat: -1, repeatDelay: 1, delay: 0.6 });
       tl.set(".hrow", { opacity: 0, x: -12 })
         .set(".hbadge", { scale: 0 })
-        .set(".hfill", { width: 0 });
+        .set(fills, { width: 0 })
+        .set(counters, { value: 0 })
+        .call(render);
       gsap.utils.toArray<HTMLElement>(".hrow").forEach((row) => {
         tl.to(row, { opacity: 1, x: 0, duration: 0.35, ease: "power2.out" })
           .to(row.querySelector(".hbadge"), { scale: 1, duration: 0.3, ease: "back.out(3)" }, "+=0.25");
       });
-      tl.to(".hfill", { width: (i, el) => `${(el as HTMLElement).dataset.value}%`, duration: 1, stagger: 0.15, ease: "power2.out" }, "+=0.2")
-        .to({}, { duration: 3 })
-        .to(".hrow", { opacity: 0, duration: 0.4, stagger: 0.05 });
+      fills.forEach((fill, i) => {
+        const target = Number(fill.dataset.value);
+        tl.to(fill, { width: `${target}%`, duration: 1, ease: "power2.out" }, i === 0 ? "+=0.2" : "<0.15")
+          .to(counters[i], { value: target, duration: 1, ease: "power2.out", onUpdate: render }, "<");
+      });
+      // Fin de boucle : jeux, barres et chiffres disparaissent ensemble
+      tl.to({}, { duration: 3 })
+        .addLabel("reset")
+        .to(".hrow", { opacity: 0, duration: 0.4, stagger: 0.05 }, "reset")
+        .to(fills, { width: 0, duration: 0.5, ease: "power2.in" }, "reset")
+        .to(counters, { value: 0, duration: 0.5, ease: "power2.in", onUpdate: render }, "reset");
       return pauseOffscreen(scope.current, [tl]);
     },
     { scope },
@@ -379,7 +395,7 @@ export function VerdictVisual({ labels, stats }: { labels: HunterLabels; stats: 
             <div key={bar.label}>
               <div className="mb-1 flex justify-between font-mono text-[11px] text-muted">
                 <span>{bar.label}</span>
-                <span className="text-ink">{bar.value} %</span>
+                <span className="hvalue text-ink tabular-nums">{bar.value} %</span>
               </div>
               <div className="h-1.5 overflow-hidden rounded-full bg-chip">
                 <span className="hfill block h-full rounded-full bg-linear-to-r from-accent to-violet-500" data-value={bar.value} style={{ width: `${bar.value}%` }} />
