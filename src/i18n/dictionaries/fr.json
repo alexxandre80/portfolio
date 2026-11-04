@@ -35,26 +35,16 @@
       }
     ]
   },
-  "pipeline": {
-    "title": "pipeline.run",
-    "steps": [
-      {
-        "title": "Collecte",
-        "desc": "Collecteurs distribués, navigateurs headless"
-      },
-      {
-        "title": "Normalisation",
-        "desc": "Schéma commun, nettoyage"
-      },
-      {
-        "title": "Déduplication",
-        "desc": "Contrôle qualité automatique"
-      },
-      {
-        "title": "Enrichissement IA",
-        "desc": "Classification, extraction"
-      }
-    ]
+  "heroDemo": {
+    "model": "qwen3:8b × Wikidata",
+    "prompt": "Quels jeux a faits Naughty Dog ?",
+    "confirmed": "confirmé",
+    "contradicted": "contredit",
+    "note": "Crash Bandicoot 4 est un jeu de Toys for Bob. Naughty Dog a créé Crash dans les années 90 : c'est l'erreur plausible, la plus difficile à repérer.",
+    "scope": "Sur 22 studios :",
+    "precision": "de précision",
+    "recall": "de rappel",
+    "link": "Voir le projet"
   },
   "projects": {
     "eyebrow": "Projets",

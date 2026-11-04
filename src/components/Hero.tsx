@@ -4,15 +4,24 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { profile } from "@/data/projects";
+import { hunterStats, profile } from "@/data/projects";
 
 gsap.registerPlugin(useGSAP);
 
-type Props = { dict: Dictionary["hero"]; pipeline: Dictionary["pipeline"] };
+type Props = { dict: Dictionary["hero"]; demo: Dictionary["heroDemo"] };
+
+// Réponses réelles de Qwen 3 8B pour Naughty Dog, vérifiées contre Wikidata (dépôt hallucination-hunter)
+const answers = [
+  { title: "Uncharted 2: Among Thieves", verdict: "confirmed" },
+  { title: "The Last of Us", verdict: "confirmed" },
+  { title: "The Last of Us Part II", verdict: "confirmed" },
+  { title: "Uncharted 3: Drake's Deception", verdict: "confirmed" },
+  { title: "Crash Bandicoot 4: It's About Time", verdict: "contradicted", credit: "Toys for Bob" },
+] as const;
 
 const words = (text: string) => text.split(" ").map((w, i) => <span key={i} className="word inline-block">{w}&nbsp;</span>);
 
-export function Hero({ dict, pipeline }: Props) {
+export function Hero({ dict, demo }: Props) {
   const scope = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -24,15 +33,18 @@ export function Hero({ dict, pipeline }: Props) {
       tl.from(".badge", { y: 10, opacity: 0, duration: 0.5 }, 0.2)
         .from(".word", { y: 24, opacity: 0, filter: "blur(6px)", duration: 0.7, stagger: 0.04 }, 0.3)
         .from(".reveal", { y: 16, opacity: 0, duration: 0.6, stagger: 0.08 }, 0.8)
-        .from(".panel", { y: 40, opacity: 0, duration: 0.9 }, 0.4)
-        .from(".step", { x: -12, opacity: 0, duration: 0.4, stagger: 0.12 }, 0.9);
+        .from(".panel", { y: 40, opacity: 0, duration: 0.9 }, 0.4);
 
-      // Illustration du principe, sans chiffres : chaque étape se remplit puis se valide
-      gsap.utils.toArray<HTMLElement>(".step").forEach((step, i) => {
-        const at = 1.4 + i * 0.45;
-        tl.to(step.querySelector(".fill"), { width: "100%", duration: 0.8, ease: "power2.inOut" }, at)
-          .fromTo(step.querySelector(".check"), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(3)" }, at + 0.7);
-      });
+      // La question se tape, puis chaque réponse du modèle reçoit son verdict. Joué une seule fois
+      const prompt = scope.current!.querySelector<HTMLElement>(".prompt")!;
+      const full = prompt.dataset.text ?? "";
+      const typed = { chars: 0 };
+      tl.set(prompt, { textContent: "" }, 1)
+        .to(typed, { chars: full.length, duration: full.length * 0.035, ease: "none", onUpdate: () => { prompt.textContent = full.slice(0, Math.round(typed.chars)); } }, 1.1)
+        .from(".answer", { opacity: 0, x: -10, duration: 0.35, stagger: 0.35 }, "+=0.2")
+        .from(".verdict", { scale: 0, duration: 0.3, stagger: 0.35, ease: "back.out(3)" }, "<0.2")
+        .from(".demo-note", { opacity: 0, y: 6, duration: 0.5 }, "+=0.2")
+        .from(".demo-stats", { opacity: 0, duration: 0.5 }, "<0.2");
     },
     { scope },
   );
@@ -63,26 +75,41 @@ export function Hero({ dict, pipeline }: Props) {
         </div>
       </div>
 
-      <div className="panel glass overflow-hidden rounded-[20px]" aria-hidden>
-        <div className="flex items-center justify-between border-b border-line px-4 py-3 text-[13px]">
-          <span className="flex gap-1.5">{[0, 1, 2].map((i) => <i key={i} className="size-2.5 rounded-full bg-line" />)}</span>
-          <span>{pipeline.title}</span>
-          <span className="w-[42px]" />
+      <div className="panel glass overflow-hidden rounded-[20px]">
+        <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-3 text-[13px]">
+          <span className="flex gap-1.5" aria-hidden>{[0, 1, 2].map((i) => <i key={i} className="size-2.5 rounded-full bg-line" />)}</span>
+          <span className="font-medium">hallucination-hunter</span>
+          <span className="font-mono text-[11px] text-muted">{demo.model}</span>
         </div>
-        <div className="grid gap-2.5 p-4">
-          {pipeline.steps.map((s, i) => (
-            <div key={s.title} className="step glass-inner grid grid-cols-[32px_1fr_auto] items-center gap-x-3 gap-y-2.5 rounded-xl p-3">
-              <span className="grid size-8 place-items-center rounded-lg bg-accent-soft font-mono text-[13px] font-medium text-accent">0{i + 1}</span>
-              <div>
-                <div className="text-sm font-medium">{s.title}</div>
-                <div className="mt-0.5 text-xs text-muted">{s.desc}</div>
-              </div>
-              <span className="check grid size-6 place-items-center rounded-full bg-ok/15 text-xs text-ok">✓</span>
-              <div className="col-start-2 col-end-4 h-1 overflow-hidden rounded bg-chip">
-                <span className="fill block h-full w-0 rounded bg-linear-to-r from-accent to-violet-500" />
-              </div>
-            </div>
-          ))}
+
+        <div className="p-4">
+          <p className="mb-3 font-mono text-[13px] text-accent">
+            › <span className="prompt" data-text={demo.prompt}>{demo.prompt}</span>
+          </p>
+          <ul className="grid gap-2">
+            {answers.map((answer) => (
+              <li key={answer.title} className="answer glass-inner flex items-center gap-3 rounded-xl px-3 py-2.5">
+                <span className={`verdict grid size-6 shrink-0 place-items-center rounded-full font-mono text-xs font-semibold ${answer.verdict === "confirmed" ? "bg-ok/15 text-ok" : "bg-amber-500/15 text-amber-600 dark:text-amber-400"}`}>
+                  {answer.verdict === "confirmed" ? "✓" : "!"}
+                </span>
+                {/* Sur écran étroit, le verdict passe sous le titre au lieu de déborder */}
+                <span className="min-w-0 flex-1 sm:flex sm:items-center sm:gap-3">
+                  <span className="block truncate text-sm font-medium">{answer.title}</span>
+                  <span className="block font-mono text-[11px] text-muted sm:ml-auto sm:shrink-0">
+                    {answer.verdict === "confirmed" ? demo.confirmed : `${demo.contradicted} · ${"credit" in answer ? answer.credit : ""}`}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="demo-note mt-3 text-xs leading-relaxed text-muted">{demo.note}</p>
+        </div>
+
+        <div className="demo-stats flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-line px-4 py-3 text-xs text-muted">
+          <span>{demo.scope}</span>
+          <span><b className="font-mono text-sm text-ink">{hunterStats.strict}–{hunterStats.verifiable} %</b> {demo.precision}</span>
+          <span><b className="font-mono text-sm text-ink">{hunterStats.recall} %</b> {demo.recall}</span>
+          <a href="#projets" className="ml-auto font-medium text-accent hover:underline">{demo.link} →</a>
         </div>
       </div>
     </div>
