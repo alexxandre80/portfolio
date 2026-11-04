@@ -11,7 +11,7 @@ const link = "hidden text-muted transition-colors hover:text-ink md:inline";
 
 export function Header({ dict, locale }: Props) {
   return (
-    <header className="glass fixed top-4 left-1/2 z-20 w-[min(1120px,calc(100%-32px))] -translate-x-1/2 rounded-[18px]">
+    <header className="glass max-md:bg-bg/90! fixed top-4 left-1/2 z-20 w-[min(1120px,calc(100%-32px))] -translate-x-1/2 rounded-[18px]">
       <div className="flex h-15 items-center justify-between pr-2.5 pl-4">
         <a href={`/${locale}`} className="flex items-center gap-2.5 font-semibold">
           <span className="grid size-7 place-items-center rounded-lg bg-ink text-xs font-semibold text-bg">AM</span>

@@ -23,7 +23,7 @@ export function About({ dict }: { dict: Dictionary["about"] }) {
   );
 
   return (
-    <section id="a-propos" ref={scope} className="relative py-24">
+    <section id="a-propos" ref={scope} className="relative py-14 md:py-24">
       <Blobs variant="projects" />
       <div className="relative z-10 mx-auto max-w-295 px-4 sm:px-8">
         <SectionHead eyebrow={dict.eyebrow} title={dict.title} />

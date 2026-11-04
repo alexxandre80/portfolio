@@ -117,7 +117,6 @@
     "title": "Eight years of development",
     "experienceTitle": "Work",
     "educationTitle": "Education",
-    "certificationsTitle": "Certifications",
     "experience": [
       {
         "period": "Apr 2022 → present",
@@ -192,10 +191,6 @@
         "degree": "BTS in Digital Systems (two-year technical degree)",
         "note": ""
       }
-    ],
-    "certifications": [
-      "Claude Code 101",
-      "Software Development with Claude Code"
     ]
   },
   "method": {
@@ -209,6 +204,11 @@
       "ai": {
         "title": "AI as a tool, not a replacement",
         "text": "I describe the project to Claude as precisely as I can, it proposes a plan, I correct it, then we move forward step by step, testing every part along the way. To me, AI doesn't replace developers: it's a tool that makes me more creative and more productive.",
+        "certifiedLabel": "Certified:",
+        "certifications": [
+          "Claude Code 101",
+          "Software Development with Claude Code"
+        ],
         "steps": [
           "Describe",
           "Plan",

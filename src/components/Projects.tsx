@@ -40,7 +40,7 @@ export function Projects({ dict }: { dict: Dictionary["projects"] }) {
   );
 
   return (
-    <section id="projets" ref={scope} className="relative py-24">
+    <section id="projets" ref={scope} className="relative py-14 md:py-24">
       <Blobs variant="projects" />
       <div className="relative z-10 mx-auto max-w-295 px-4 sm:px-8">
         <SectionHead eyebrow={dict.eyebrow} title={dict.title} lead={dict.lead}>

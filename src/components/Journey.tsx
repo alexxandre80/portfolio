@@ -26,7 +26,7 @@ export function Journey({ dict }: { dict: Dictionary["journey"] }) {
   );
 
   return (
-    <section id="parcours" ref={scope} className="relative py-24">
+    <section id="parcours" ref={scope} className="relative py-14 md:py-24">
       <div className="mx-auto max-w-295 px-4 sm:px-8">
         <SectionHead eyebrow={dict.eyebrow} title={dict.title} />
 
@@ -80,15 +80,6 @@ export function Journey({ dict }: { dict: Dictionary["journey"] }) {
                   </div>
                 ))}
               </div>
-            </div>
-
-            <div className="side">
-              <h3 className="mb-6 font-mono text-xs tracking-widest text-muted uppercase">{dict.certificationsTitle}</h3>
-              <ul className="flex flex-wrap gap-2">
-                {dict.certifications.map((c) => (
-                  <li key={c} className="glass rounded-full px-3.5 py-2 text-[13px]">{c}</li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>

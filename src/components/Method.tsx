@@ -49,7 +49,7 @@ export function Method({ dict }: { dict: Dictionary["method"] }) {
   );
 
   return (
-    <section id="methode" ref={scope} className="relative py-24">
+    <section id="methode" ref={scope} className="relative py-14 md:py-24">
       <div className="mx-auto max-w-295 px-4 sm:px-8">
         <SectionHead eyebrow={dict.eyebrow} title={dict.title} />
         <div className="mgrid grid gap-4 md:grid-cols-6">
@@ -64,6 +64,18 @@ export function Method({ dict }: { dict: Dictionary["method"] }) {
                 </span>
                 <h3 className="mt-5 text-lg font-semibold tracking-[-0.02em]">{card.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{card.text}</p>
+                {/* Les certifications Claude Code appuient directement le propos de cette carte */}
+                {"certifications" in card && (
+                  <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted">
+                    <span className="font-medium text-accent">{card.certifiedLabel}</span>
+                    {card.certifications.map((c, i) => (
+                      <span key={c}>
+                        {c}
+                        {i < card.certifications.length - 1 && <span aria-hidden> ·</span>}
+                      </span>
+                    ))}
+                  </p>
+                )}
                 {"steps" in card && (
                   <ol className="mt-auto flex flex-wrap items-center gap-2 pt-6 font-mono text-xs">
                     {card.steps.map((s, i) => (

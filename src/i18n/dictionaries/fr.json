@@ -117,7 +117,6 @@
     "title": "Huit ans de développement",
     "experienceTitle": "Expérience",
     "educationTitle": "Formation",
-    "certificationsTitle": "Certifications",
     "experience": [
       {
         "period": "avr. 2022 → aujourd'hui",
@@ -192,10 +191,6 @@
         "degree": "BTS Systèmes numériques",
         "note": ""
       }
-    ],
-    "certifications": [
-      "Claude Code 101",
-      "Software Development with Claude Code"
     ]
   },
   "method": {
@@ -209,6 +204,11 @@
       "ai": {
         "title": "L'IA comme outil, pas comme remplaçant",
         "text": "Je décris le projet à Claude le plus précisément possible, il propose un plan, je le corrige, puis on avance étape par étape en testant chaque aspect au fur et à mesure. Pour moi, l'IA ne remplace pas le développeur : c'est un outil qui me rend plus créatif et plus productif.",
+        "certifiedLabel": "Certifié :",
+        "certifications": [
+          "Claude Code 101",
+          "Software Development with Claude Code"
+        ],
         "steps": [
           "Décrire",
           "Planifier",

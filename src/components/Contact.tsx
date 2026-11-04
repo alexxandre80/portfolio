@@ -80,7 +80,7 @@ export function Contact({ dict, locale }: { dict: Dictionary["contact"]; locale:
     `w-full rounded-xl border bg-chip px-4 py-3 text-sm outline-none transition placeholder:text-muted/70 focus:border-accent focus:ring-4 focus:ring-accent-soft ${invalid(field) ? "border-red-500" : "border-line"}`;
 
   return (
-    <section id="contact" className="relative py-24">
+    <section id="contact" className="relative py-14 md:py-24">
       <div className="mx-auto grid max-w-295 gap-10 px-4 sm:px-8 lg:grid-cols-[1fr_1.3fr]">
         <div>
           <SectionHead eyebrow={dict.eyebrow} title={dict.title} />
