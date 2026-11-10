@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Alexandre Mandra · Software Engineer",
-    "description": "Software Engineer à Paris : collecte de données web, pipelines d'ingestion et IA générative appliquée."
+    "description": "Software Engineer à Paris. Données, IA appliquée et temps réel : mes projets, dont un outil qui mesure ce qu'un LLM local invente sur des jeux vidéo."
   },
   "nav": {
     "projects": "Projets",
