@@ -24,7 +24,8 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(siteUrl),
     title: dict.meta.title,
     description: dict.meta.description,
-    alternates: { canonical: `/${locale}`, languages: { fr: "/fr", en: "/en" } },
+    // x-default : la racine, qui redirige selon la langue du navigateur (cas prévu par Google)
+    alternates: { canonical: `/${locale}`, languages: { fr: "/fr", en: "/en", "x-default": "/" } },
     authors: [{ name: "Alexandre Mandra", url: siteUrl }],
     creator: "Alexandre Mandra",
     // L'image d'aperçu vient de opengraph-image.tsx, ajoutée automatiquement par Next.

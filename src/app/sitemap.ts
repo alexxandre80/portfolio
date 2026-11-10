@@ -7,6 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteUrl}/${locale}`,
     changeFrequency: "monthly",
     priority: 1,
-    alternates: { languages: Object.fromEntries(locales.map((l) => [l, `${siteUrl}/${l}`])) },
+    alternates: { languages: { ...Object.fromEntries(locales.map((l) => [l, `${siteUrl}/${l}`])), "x-default": siteUrl } },
   }));
 }
