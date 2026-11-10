@@ -40,6 +40,8 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: locale === "fr" ? "fr_FR" : "en_US",
     },
     twitter: { card: "summary_large_image" },
+    // Preuve de propriété pour Google Search Console (valeur publique, pas un secret)
+    verification: { google: "LPxGBUj7-6UXvL_W4xlF1ReaorbCtaDfT1R9JmcIKBE" },
   };
 }
 
