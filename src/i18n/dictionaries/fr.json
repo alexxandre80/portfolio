@@ -15,7 +15,7 @@
   },
   "hero": {
     "badge": "Software Engineer · Paris",
-    "title": "Développeur, je construis des outils",
+    "title": "Développeur, je construis des outils de données et d'IA",
     "highlight": "qui tiennent la route.",
     "lead": "Collecte de données, IA appliquée, applications temps réel. Ce qui me plaît : concevoir un projet de A à Z, résoudre les problèmes techniques en chemin, et voir des gens utiliser ce que j'ai construit.",
     "ctaProjects": "Voir les projets",
@@ -45,7 +45,8 @@
     "precision": "de précision",
     "recall": "de rappel",
     "link": "Voir le projet",
-    "explain": "Précision : part des jeux cités qui sont vrais ({strict} % si un jeu introuvable compte comme faux, {verifiable} % sinon). Rappel : part de la vraie liste que le modèle retrouve."
+    "explain": "Sur {cited} jeux cités. Précision : part des jeux cités qui sont vrais ({strict} % si un jeu introuvable compte comme faux, {verifiable} % sinon). Rappel : part de la vraie liste que le modèle retrouve. Des chiffres bas : c'est justement ce que le projet montre.",
+    "intro": "Un de mes projets : vérifier ce qu'une IA invente quand on l'interroge."
   },
   "projects": {
     "eyebrow": "Projets",
@@ -111,7 +112,8 @@
       "strict": "Précision stricte",
       "verifiable": "Précision vérifiable",
       "recall": "Rappel",
-      "explain": "Précision : part des jeux cités qui sont vrais ({strict} % si un jeu introuvable compte comme faux, {verifiable} % sinon). Rappel : part de la vraie liste que le modèle retrouve."
+      "explain": "Sur {cited} jeux cités. Précision : part des jeux cités qui sont vrais ({strict} % si un jeu introuvable compte comme faux, {verifiable} % sinon). Rappel : part de la vraie liste que le modèle retrouve. Des chiffres bas : c'est justement ce que le projet montre.",
+      "scope": "Sur les 22 studios"
     },
     "linkCode": "Code",
     "linkTry": "Essayer"
@@ -292,7 +294,8 @@
   },
   "footer": {
     "built": "Conçu et développé avec Next.js, GSAP et Lenis.",
-    "legal": "Mentions légales"
+    "legal": "Mentions légales",
+    "source": "Code source du site"
   },
   "notFound": {
     "title": "Page introuvable",

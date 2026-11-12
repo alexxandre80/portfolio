@@ -47,7 +47,7 @@ export default async function Home() {
       <Method dict={dict.method} />
       <About dict={dict.about} />
       <Contact dict={dict.contact} locale={locale} />
-      <Footer text={dict.footer.built} legal={dict.footer.legal} locale={locale} />
+      <Footer text={dict.footer.built} legal={dict.footer.legal} source={dict.footer.source} locale={locale} />
     </main>
   );
 }

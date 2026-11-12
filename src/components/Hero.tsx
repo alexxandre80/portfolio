@@ -19,9 +19,9 @@ const answers = [
   { title: "Crash Bandicoot 4: It's About Time", verdict: "contradicted", credit: "Toys for Bob" },
 ] as const;
 
-// Remplace {strict}, {verifiable} et {recall} par les chiffres publiés, pour qu'ils ne divergent jamais du texte
+// Remplace {strict}, {verifiable}, {recall} et {cited} par les chiffres publiés, pour qu'ils ne divergent jamais du texte
 export const explainMetrics = (text: string) =>
-  text.replace(/\{(strict|verifiable|recall)\}/g, (_, key: keyof typeof hunterStats) => String(hunterStats[key]));
+  text.replace(/\{(strict|verifiable|recall|cited)\}/g, (_, key: keyof typeof hunterStats) => String(hunterStats[key]));
 
 const words = (text: string) => text.split(" ").map((w, i) => <span key={i} className="word inline-block">{w}&nbsp;</span>);
 
@@ -90,6 +90,8 @@ export function Hero({ dict, demo }: Props) {
         </div>
 
         <div className="p-4">
+          {/* Sans cette ligne, les visiteurs ne comprenaient pas pourquoi des jeux Naughty Dog s'affichent */}
+          <p className="mb-2 text-xs text-muted">{demo.intro}</p>
           <p className="mb-3 font-mono text-[13px] text-accent">
             › <span className="prompt" data-text={demo.prompt}>{demo.prompt}</span>
           </p>

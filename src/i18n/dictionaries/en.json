@@ -15,7 +15,7 @@
   },
   "hero": {
     "badge": "Software Engineer · Paris",
-    "title": "I'm a developer who builds tools",
+    "title": "I'm a developer who builds data and AI tools",
     "highlight": "that hold up.",
     "lead": "Data collection, applied AI, real-time applications. What I enjoy: building a project from start to finish, solving the technical problems along the way, and seeing people use what I've built.",
     "ctaProjects": "See projects",
@@ -45,7 +45,8 @@
     "precision": "precision",
     "recall": "recall",
     "link": "See the project",
-    "explain": "Precision: share of the cited games that are real ({strict}% if a game that can't be found counts as wrong, {verifiable}% otherwise). Recall: share of the actual list the model finds."
+    "explain": "Across {cited} cited games. Precision: share of the cited games that are real ({strict}% if a game that can't be found counts as wrong, {verifiable}% otherwise). Recall: share of the actual list the model finds. Low numbers: that's exactly what the project shows.",
+    "intro": "One of my projects: checking what an AI makes up when you ask it something."
   },
   "projects": {
     "eyebrow": "Projects",
@@ -111,7 +112,8 @@
       "strict": "Strict precision",
       "verifiable": "Verifiable precision",
       "recall": "Recall",
-      "explain": "Precision: share of the cited games that are real ({strict}% if a game that can't be found counts as wrong, {verifiable}% otherwise). Recall: share of the actual list the model finds."
+      "explain": "Across {cited} cited games. Precision: share of the cited games that are real ({strict}% if a game that can't be found counts as wrong, {verifiable}% otherwise). Recall: share of the actual list the model finds. Low numbers: that's exactly what the project shows.",
+      "scope": "Across the 22 studios"
     },
     "linkCode": "Code",
     "linkTry": "Try it"
@@ -292,7 +294,8 @@
   },
   "footer": {
     "built": "Designed and built with Next.js, GSAP and Lenis.",
-    "legal": "Legal notice"
+    "legal": "Legal notice",
+    "source": "Site source code"
   },
   "notFound": {
     "title": "Page not found",

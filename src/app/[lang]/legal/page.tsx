@@ -29,7 +29,7 @@ export default async function LegalPage() {
           ))}
         </div>
       </article>
-      <Footer text={footer.built} legal={footer.legal} locale={locale} />
+      <Footer text={footer.built} legal={footer.legal} source={footer.source} locale={locale} />
     </main>
   );
 }

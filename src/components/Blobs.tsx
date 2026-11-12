@@ -50,7 +50,12 @@ export function Blobs({ variant }: { variant: keyof typeof layouts }) {
   );
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
+    // Hors hero, les halos s'estompent en haut et en bas de la section : sinon, dans une section courte
+    // (À propos), un halo coupé net par le bord dessine une ligne avec la section suivante
+    <div
+      className={`pointer-events-none absolute inset-0 z-0 overflow-hidden ${variant === "hero" ? "" : "mask-[linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]"}`}
+      aria-hidden
+    >
       <div ref={scope} className="absolute inset-0">
         {layouts[variant].map((cls) => (
           <div key={cls} className={`blob absolute rounded-full opacity-75 blur-[70px] max-md:blur-[50px] ${cls}`} />

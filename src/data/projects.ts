@@ -33,7 +33,7 @@ export const projects: Project[] = [
 ];
 
 // Résultats publiés de hallucination-hunter (v1, Qwen 3 8B, 22 studios), en pourcentage
-export const hunterStats = { strict: 33, verifiable: 46, recall: 9 };
+export const hunterStats = { strict: 33, verifiable: 46, recall: 9, cited: 188 };
 
 export type TechLogo = { title: string; viewBox: string; path: string; hex: string };
 

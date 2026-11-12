@@ -303,6 +303,7 @@ export function ArtilleryVisual({ labels }: { labels: { angle: string; power: st
 
 type HunterLabels = {
   studio: string;
+  scope: string;
   explain: string;
   confirmed: string;
   contradicted: string;
@@ -327,7 +328,7 @@ const verdictStyle = {
   notFound: { icon: "?", className: "bg-chip text-muted" },
 } as const;
 
-export function VerdictVisual({ labels, stats }: { labels: HunterLabels; stats: { strict: number; verifiable: number; recall: number } }) {
+export function VerdictVisual({ labels, stats }: { labels: HunterLabels; stats: { strict: number; verifiable: number; recall: number; cited: number } }) {
   const scope = useRef<HTMLDivElement>(null);
   const bars = [
     { label: labels.verifiable, value: stats.verifiable },
@@ -386,10 +387,13 @@ export function VerdictVisual({ labels, stats }: { labels: HunterLabels; stats: 
               return (
                 <li key={row.title} className="hrow flex items-center gap-2.5 text-[13px]">
                   <span className={`hbadge grid size-5 shrink-0 place-items-center rounded-full font-mono text-[11px] font-semibold ${style.className}`}>{style.icon}</span>
-                  <span className="truncate">{row.title}</span>
-                  <span className="ml-auto shrink-0 font-mono text-[11px] text-muted">
-                    {labels[row.verdict]}
-                    {"credit" in row ? ` · ${row.credit}` : ""}
+                  {/* Sur écran étroit, le verdict passe sous le titre au lieu de le tronquer */}
+                  <span className="min-w-0 flex-1 sm:flex sm:items-center sm:gap-3">
+                    <span className="block truncate">{row.title}</span>
+                    <span className="block font-mono text-[11px] text-muted sm:ml-auto sm:shrink-0">
+                      {labels[row.verdict]}
+                      {"credit" in row ? ` · ${row.credit}` : ""}
+                    </span>
                   </span>
                 </li>
               );
@@ -397,6 +401,8 @@ export function VerdictVisual({ labels, stats }: { labels: HunterLabels; stats: 
           </ul>
         </div>
         <div className="grid content-center gap-3">
+          {/* Les barres portent sur les 22 studios, pas sur le studio affiché à gauche */}
+          <div className="font-mono text-[11px] text-muted">{labels.scope}</div>
           {bars.map((bar) => (
             <div key={bar.label}>
               <div className="mb-1 flex justify-between font-mono text-[11px] text-muted">
@@ -410,7 +416,7 @@ export function VerdictVisual({ labels, stats }: { labels: HunterLabels; stats: 
           ))}
           {/* Les visiteurs ne savaient pas ce que mesurent précision et rappel */}
           <p className="text-[11px] leading-relaxed text-muted">
-            {labels.explain.replace(/\{(strict|verifiable|recall)\}/g, (_, key: keyof typeof stats) => String(stats[key]))}
+            {labels.explain.replace(/\{(strict|verifiable|recall|cited)\}/g, (_, key: keyof typeof stats) => String(stats[key]))}
           </p>
         </div>
       </div>
