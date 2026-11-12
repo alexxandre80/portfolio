@@ -44,7 +44,8 @@
     "scope": "Across 22 studios:",
     "precision": "precision",
     "recall": "recall",
-    "link": "See the project"
+    "link": "See the project",
+    "explain": "Precision: share of the cited games that are real ({strict}% if a game that can't be found counts as wrong, {verifiable}% otherwise). Recall: share of the actual list the model finds."
   },
   "projects": {
     "eyebrow": "Projects",
@@ -74,7 +75,7 @@
       "hunter": {
         "tag": "Data & AI · 2026 side project",
         "title": "hallucination-hunter",
-        "desc": "A local LLM (Qwen 3 via Ollama) lists the video games of 22 studios, and every answer is checked against Wikidata. Result: only a minority of the cited games are right, and the model credits real games to the wrong studio more often than it invents them. With a Streamlit dashboard to follow the runs and test any studio."
+        "desc": "I asked an AI to list the games of 22 studios, then checked every answer. In practice, a local LLM (Qwen 3 via Ollama) answers, and each game it cites is checked against Wikidata. Result: only a minority of the cited games are right, and the model credits real games to the wrong studio more often than it invents them. With a Streamlit dashboard to follow the runs and test any studio."
       },
       "blindtest": {
         "tag": "Real-time engine · in progress",
@@ -109,8 +110,11 @@
       "notFound": "not found",
       "strict": "Strict precision",
       "verifiable": "Verifiable precision",
-      "recall": "Recall"
-    }
+      "recall": "Recall",
+      "explain": "Precision: share of the cited games that are real ({strict}% if a game that can't be found counts as wrong, {verifiable}% otherwise). Recall: share of the actual list the model finds."
+    },
+    "linkCode": "Code",
+    "linkTry": "Try it"
   },
   "journey": {
     "eyebrow": "Experience",

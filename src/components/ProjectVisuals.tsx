@@ -303,6 +303,7 @@ export function ArtilleryVisual({ labels }: { labels: { angle: string; power: st
 
 type HunterLabels = {
   studio: string;
+  explain: string;
   confirmed: string;
   contradicted: string;
   notFound: string;
@@ -343,20 +344,25 @@ export function VerdictVisual({ labels, stats }: { labels: HunterLabels; stats: 
       const counters = fills.map(() => ({ value: 0 }));
       const render = () => values.forEach((el, i) => { el.textContent = `${Math.round(counters[i].value)} %`; });
 
-      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1, delay: 0.6 });
+      // En pause jusqu'à ce que la carte soit visible : pauseOffscreen la lance à l'arrivée du visiteur,
+      // qui voit donc les barres se remplir au lieu de tomber sur des compteurs à 0 %
+      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1, paused: true });
       tl.set(".hrow", { opacity: 0, x: -12 })
         .set(".hbadge", { scale: 0 })
         .set(fills, { width: 0 })
         .set(counters, { value: 0 })
-        .call(render);
-      gsap.utils.toArray<HTMLElement>(".hrow").forEach((row) => {
-        tl.to(row, { opacity: 1, x: 0, duration: 0.35, ease: "power2.out" })
+        .call(render)
+        .addLabel("rows", 0.2);
+      gsap.utils.toArray<HTMLElement>(".hrow").forEach((row, i) => {
+        tl.to(row, { opacity: 1, x: 0, duration: 0.35, ease: "power2.out" }, i === 0 ? "rows" : ">")
           .to(row.querySelector(".hbadge"), { scale: 1, duration: 0.3, ease: "back.out(3)" }, "+=0.25");
       });
+      // Les barres se remplissent pendant que les jeux apparaissent, pas après
       fills.forEach((fill, i) => {
         const target = Number(fill.dataset.value);
-        tl.to(fill, { width: `${target}%`, duration: 1, ease: "power2.out" }, i === 0 ? "+=0.2" : "<0.15")
-          .to(counters[i], { value: target, duration: 1, ease: "power2.out", onUpdate: render }, "<");
+        const at = `rows+=${0.3 + i * 0.15}`;
+        tl.to(fill, { width: `${target}%`, duration: 2, ease: "power2.out" }, at)
+          .to(counters[i], { value: target, duration: 2, ease: "power2.out", onUpdate: render }, at);
       });
       // Fin de boucle : jeux, barres et chiffres disparaissent ensemble
       tl.to({}, { duration: 3 })
@@ -402,6 +408,10 @@ export function VerdictVisual({ labels, stats }: { labels: HunterLabels; stats: 
               </div>
             </div>
           ))}
+          {/* Les visiteurs ne savaient pas ce que mesurent précision et rappel */}
+          <p className="text-[11px] leading-relaxed text-muted">
+            {labels.explain.replace(/\{(strict|verifiable|recall)\}/g, (_, key: keyof typeof stats) => String(stats[key]))}
+          </p>
         </div>
       </div>
     </Frame>

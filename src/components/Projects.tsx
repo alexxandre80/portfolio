@@ -62,10 +62,13 @@ export function Projects({ dict }: { dict: Dictionary["projects"] }) {
               >
                 <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(360px_circle_at_var(--mx,50%)_var(--my,50%),var(--spot),transparent_60%)]" />
                 {p.href && (
-                  <span className="absolute top-5 right-5 grid size-8 place-items-center rounded-full bg-chip text-sm transition-colors group-hover:bg-ink group-hover:text-bg">↗</span>
+                  // Libellé explicite : la flèche seule n'était pas perçue comme un lien, ni où il mène
+                  <span className="absolute top-5 right-5 rounded-full bg-chip px-3 py-1.5 text-xs font-medium transition-colors group-hover:bg-ink group-hover:text-bg">
+                    {p.href.includes("github.com") ? dict.linkCode : dict.linkTry} ↗
+                  </span>
                 )}
                 <div>
-                  <span className="font-mono text-[11px] text-muted">{t.tag}</span>
+                  <span className={`block font-mono text-[11px] text-muted ${p.href ? "pr-24" : ""}`}>{t.tag}</span>
                   <h3 className="mt-1.5 text-xl font-semibold tracking-[-0.02em]">{t.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted">{t.desc}</p>
                   {p.visual && <Chips items={p.stack} />}

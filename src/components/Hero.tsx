@@ -19,6 +19,10 @@ const answers = [
   { title: "Crash Bandicoot 4: It's About Time", verdict: "contradicted", credit: "Toys for Bob" },
 ] as const;
 
+// Remplace {strict}, {verifiable} et {recall} par les chiffres publiés, pour qu'ils ne divergent jamais du texte
+export const explainMetrics = (text: string) =>
+  text.replace(/\{(strict|verifiable|recall)\}/g, (_, key: keyof typeof hunterStats) => String(hunterStats[key]));
+
 const words = (text: string) => text.split(" ").map((w, i) => <span key={i} className="word inline-block">{w}&nbsp;</span>);
 
 export function Hero({ dict, demo }: Props) {
@@ -67,6 +71,9 @@ export function Hero({ dict, demo }: Props) {
           <a href={profile.linkedin} target="_blank" rel="noopener" className="glass rounded-[10px] px-4 py-2.5 text-sm font-medium transition hover:-translate-y-px">
             {dict.ctaLinkedin} ↗
           </a>
+          <a href={profile.github} target="_blank" rel="noopener" className="glass rounded-[10px] px-4 py-2.5 text-sm font-medium transition hover:-translate-y-px">
+            GitHub ↗
+          </a>
         </div>
         <div className="reveal mt-10 flex flex-wrap gap-6 text-[13px] text-muted">
           {dict.skills.map((s) => (
@@ -110,6 +117,7 @@ export function Hero({ dict, demo }: Props) {
           <span><b className="font-mono text-sm text-ink">{hunterStats.strict}–{hunterStats.verifiable} %</b> {demo.precision}</span>
           <span><b className="font-mono text-sm text-ink">{hunterStats.recall} %</b> {demo.recall}</span>
           <a href="#projets" className="ml-auto font-medium text-accent hover:underline">{demo.link} →</a>
+          <p className="demo-explain basis-full text-[11px] leading-relaxed">{explainMetrics(demo.explain)}</p>
         </div>
       </div>
     </div>

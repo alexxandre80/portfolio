@@ -44,7 +44,8 @@
     "scope": "Sur 22 studios :",
     "precision": "de précision",
     "recall": "de rappel",
-    "link": "Voir le projet"
+    "link": "Voir le projet",
+    "explain": "Précision : part des jeux cités qui sont vrais ({strict} % si un jeu introuvable compte comme faux, {verifiable} % sinon). Rappel : part de la vraie liste que le modèle retrouve."
   },
   "projects": {
     "eyebrow": "Projets",
@@ -74,7 +75,7 @@
       "hunter": {
         "tag": "Data & IA · projet perso 2026",
         "title": "hallucination-hunter",
-        "desc": "Un LLM local (Qwen 3 via Ollama) liste les jeux vidéo de 22 studios, et chaque réponse est vérifiée contre Wikidata. Résultat : seule une minorité des jeux cités est juste, et le modèle prête plus souvent de vrais jeux au mauvais studio qu'il n'en invente. Avec un tableau de bord Streamlit pour suivre les mesures et tester n'importe quel studio."
+        "desc": "J'ai demandé à une IA de lister les jeux de 22 studios, puis j'ai vérifié chaque réponse. Concrètement, un LLM local (Qwen 3 via Ollama) répond, et chaque jeu cité est confronté à Wikidata. Résultat : seule une minorité des jeux cités est juste, et le modèle prête plus souvent de vrais jeux au mauvais studio qu'il n'en invente. Avec un tableau de bord Streamlit pour suivre les mesures et tester n'importe quel studio."
       },
       "blindtest": {
         "tag": "Moteur temps réel · en cours",
@@ -109,8 +110,11 @@
       "notFound": "introuvable",
       "strict": "Précision stricte",
       "verifiable": "Précision vérifiable",
-      "recall": "Rappel"
-    }
+      "recall": "Rappel",
+      "explain": "Précision : part des jeux cités qui sont vrais ({strict} % si un jeu introuvable compte comme faux, {verifiable} % sinon). Rappel : part de la vraie liste que le modèle retrouve."
+    },
+    "linkCode": "Code",
+    "linkTry": "Essayer"
   },
   "journey": {
     "eyebrow": "Parcours",
