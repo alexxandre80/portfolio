@@ -19,19 +19,25 @@ export default async function Home() {
   // LinkedIn et GitHub à la même identité. Seulement ce que le site affiche déjà (pas d'employeur)
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    url: `${siteUrl}/${locale}`,
-    inLanguage: locale,
-    mainEntity: {
-      "@type": "Person",
-      name: "Alexandre Mandra",
-      jobTitle: "Software Engineer",
-      description: dict.meta.description,
-      url: siteUrl,
-      address: { "@type": "PostalAddress", addressLocality: "Paris", addressCountry: "FR" },
-      sameAs: [profile.linkedin, profile.github],
-      knowsAbout: ["Python", "PHP", "TypeScript", "Web scraping", "Data pipelines", "LLM", "Generative AI"],
-    },
+    "@graph": [
+      // Nom du site affiché par Google au-dessus du lien (sans lui, il affiche « Vercel »)
+      { "@type": "WebSite", name: "Alexandre Mandra", url: `${siteUrl}/` },
+      {
+        "@type": "ProfilePage",
+        url: `${siteUrl}/${locale}`,
+        inLanguage: locale,
+        mainEntity: {
+          "@type": "Person",
+          name: "Alexandre Mandra",
+          jobTitle: "Software Engineer",
+          description: dict.meta.description,
+          url: siteUrl,
+          address: { "@type": "PostalAddress", addressLocality: "Paris", addressCountry: "FR" },
+          sameAs: [profile.linkedin, profile.github],
+          knowsAbout: ["Python", "PHP", "TypeScript", "Web scraping", "Data pipelines", "LLM", "Generative AI"],
+        },
+      },
+    ],
   };
 
   return (
