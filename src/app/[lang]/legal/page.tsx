@@ -3,8 +3,15 @@ import { getDictionary, getLocale } from "@/i18n/dictionaries";
 import { Footer } from "@/components/Footer";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
   const dict = await getDictionary();
-  return { title: `${dict.legal.title} · Alexandre Mandra`, robots: { index: false } };
+  return {
+    title: `${dict.legal.title} · Alexandre Mandra`,
+    // Hors index, c'est voulu. Mais la page doit se désigner elle-même comme canonique : héritée du
+    // layout, la canonique pointait vers l'accueil, ce que Google refusait (contenus différents)
+    robots: { index: false },
+    alternates: { canonical: `/${locale}/legal`, languages: { fr: "/fr/legal", en: "/en/legal" } },
+  };
 }
 
 export default async function LegalPage() {
