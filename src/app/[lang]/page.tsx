@@ -47,7 +47,7 @@ export default async function Home() {
         <Blobs variant="hero" />
         <Hero dict={dict.hero} demo={dict.heroDemo} />
       </section>
-      <StackMarquee />
+      <StackMarquee labels={dict.marquee} />
       <Projects dict={dict.projects} />
       <Journey dict={dict.journey} />
       <Method dict={dict.method} />

@@ -30,7 +30,7 @@ export function AgentVisual({ labels }: { labels: AgentLabels }) {
       if (reduced()) return;
       // Lancée à l'arrivée de la carte à l'écran (pauseOffscreen), comme la carte hallucination-hunter
       const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.8, paused: true });
-      tl.set(".astage", { opacity: 0.35, borderColor: "var(--line)" })
+      tl.set(".astage", { opacity: 0.7, borderColor: "var(--line)" })
         .set(".acheck", { scale: 0 })
         .set(".abadge", { scale: 0.6, opacity: 0 });
       gsap.utils.toArray<HTMLElement>(".astage").forEach((stage) => {
@@ -39,7 +39,7 @@ export function AgentVisual({ labels }: { labels: AgentLabels }) {
           .to(stage.querySelectorAll(".abadge"), { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, "<")
           .to(stage, { borderColor: "var(--line)", duration: 0.3 }, "+=0.2");
       });
-      tl.to({}, { duration: 2.5 }).to(".astage", { opacity: 0.35, duration: 0.4 });
+      tl.to({}, { duration: 2.5 }).to(".astage", { opacity: 0.7, duration: 0.4 });
       return pauseOffscreen(scope.current, [tl]);
     },
     { scope },

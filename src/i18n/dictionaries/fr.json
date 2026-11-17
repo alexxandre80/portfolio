@@ -45,13 +45,13 @@
     "precision": "de précision",
     "recall": "de rappel",
     "link": "Voir le projet",
-    "explain": "Sur {cited} jeux cités. Précision : part des jeux cités qui sont vrais ({strict} % si un jeu introuvable compte comme faux, {verifiable} % sinon). Rappel : part de la vraie liste que le modèle retrouve. Des chiffres bas : c'est justement ce que le projet montre.",
+    "explain": "Sur {cited} jeux cités, vérifiés dans Wikidata (lui-même incomplet). Précision : part des jeux cités qui sont vrais ({strict} % si un jeu introuvable compte comme faux, {verifiable} % sinon). Rappel : part de la vraie liste que le modèle retrouve. Des chiffres bas : c'est justement ce que le projet montre.",
     "intro": "Un de mes projets : vérifier ce qu'une IA invente quand on l'interroge."
   },
   "projects": {
     "eyebrow": "Projets",
     "title": "Ce que j'ai construit",
-    "lead": "Au travail, je construis des systèmes de données. Sur mon temps libre, je construis surtout des jeux : c'est là que j'expérimente le temps réel, la physique et le multijoueur.",
+    "lead": "Au travail, je construis des systèmes de données. Sur mon temps libre, des outils pour moi et des jeux : c'est là que j'expérimente le temps réel, la physique et le multijoueur.",
     "github": "Tout voir sur GitHub",
     "engine": {
       "host": "Animateur",
@@ -127,7 +127,7 @@
       "strict": "Précision stricte",
       "verifiable": "Précision vérifiable",
       "recall": "Rappel",
-      "explain": "Sur {cited} jeux cités. Précision : part des jeux cités qui sont vrais ({strict} % si un jeu introuvable compte comme faux, {verifiable} % sinon). Rappel : part de la vraie liste que le modèle retrouve. Des chiffres bas : c'est justement ce que le projet montre.",
+      "explain": "Sur {cited} jeux cités, vérifiés dans Wikidata (lui-même incomplet). Précision : part des jeux cités qui sont vrais ({strict} % si un jeu introuvable compte comme faux, {verifiable} % sinon). Rappel : part de la vraie liste que le modèle retrouve. Des chiffres bas : c'est justement ce que le projet montre.",
       "scope": "Sur les 22 studios"
     },
     "linkCode": "Code",
@@ -151,6 +151,13 @@
       "owned": "cartes",
       "trend": "cote",
       "tip": "conseil : attendre la prochaine sortie"
+    },
+    "filters": {
+      "all": "Tout",
+      "ai": "IA & données",
+      "games": "Jeux",
+      "tools": "Outils perso",
+      "label": "Filtrer les projets"
     }
   },
   "journey": {
@@ -378,5 +385,10 @@
         ]
       }
     ]
+  },
+  "marquee": {
+    "label": "Les outils que j'utilise au quotidien",
+    "site": "Ce site : Next.js, GSAP et Lenis",
+    "source": "code source"
   }
 }

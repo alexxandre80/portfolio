@@ -415,7 +415,7 @@ export function VerdictVisual({ labels, stats }: { labels: HunterLabels; stats: 
             </div>
           ))}
           {/* Les visiteurs ne savaient pas ce que mesurent précision et rappel */}
-          <p className="text-[11px] leading-relaxed text-muted">
+          <p className="text-xs leading-relaxed text-muted">
             {labels.explain.replace(/\{(strict|verifiable|recall|cited)\}/g, (_, key: keyof typeof stats) => String(stats[key]))}
           </p>
         </div>

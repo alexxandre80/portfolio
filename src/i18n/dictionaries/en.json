@@ -45,13 +45,13 @@
     "precision": "precision",
     "recall": "recall",
     "link": "See the project",
-    "explain": "Across {cited} cited games. Precision: share of the cited games that are real ({strict}% if a game that can't be found counts as wrong, {verifiable}% otherwise). Recall: share of the actual list the model finds. Low numbers: that's exactly what the project shows.",
+    "explain": "Across {cited} cited games, checked against Wikidata (itself incomplete). Precision: share of the cited games that are real ({strict}% if a game that can't be found counts as wrong, {verifiable}% otherwise). Recall: share of the actual list the model finds. Low numbers: that's exactly what the project shows.",
     "intro": "One of my projects: checking what an AI makes up when you ask it something."
   },
   "projects": {
     "eyebrow": "Projects",
     "title": "What I've built",
-    "lead": "At work, I build data systems. In my spare time, I mostly build games: that's where I experiment with real-time, physics and multiplayer.",
+    "lead": "At work, I build data systems. In my spare time, tools for myself and games: that's where I experiment with real-time, physics and multiplayer.",
     "github": "See everything on GitHub",
     "engine": {
       "host": "Host",
@@ -127,7 +127,7 @@
       "strict": "Strict precision",
       "verifiable": "Verifiable precision",
       "recall": "Recall",
-      "explain": "Across {cited} cited games. Precision: share of the cited games that are real ({strict}% if a game that can't be found counts as wrong, {verifiable}% otherwise). Recall: share of the actual list the model finds. Low numbers: that's exactly what the project shows.",
+      "explain": "Across {cited} cited games, checked against Wikidata (itself incomplete). Precision: share of the cited games that are real ({strict}% if a game that can't be found counts as wrong, {verifiable}% otherwise). Recall: share of the actual list the model finds. Low numbers: that's exactly what the project shows.",
       "scope": "Across the 22 studios"
     },
     "linkCode": "Code",
@@ -151,6 +151,13 @@
       "owned": "cards",
       "trend": "price",
       "tip": "advice: wait for the next release"
+    },
+    "filters": {
+      "all": "All",
+      "ai": "AI & data",
+      "games": "Games",
+      "tools": "Personal tools",
+      "label": "Filter projects"
     }
   },
   "journey": {
@@ -378,5 +385,10 @@
         ]
       }
     ]
+  },
+  "marquee": {
+    "label": "Tools I use every day",
+    "site": "This site: Next.js, GSAP and Lenis",
+    "source": "source code"
   }
 }

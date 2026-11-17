@@ -14,7 +14,9 @@ const brandColor = (hex: string) => {
   return 0.299 * r + 0.587 * g + 0.114 * b < 60 ? "var(--ink)" : `#${hex}`;
 };
 
-export function StackMarquee() {
+const sourceUrl = "https://github.com/alexxandre80/portfolio";
+
+export function StackMarquee({ labels }: { labels: { label: string; site: string; source: string } }) {
   const track = useRef<HTMLUListElement>(null);
   const loop = useRef<gsap.core.Tween>(null);
 
@@ -45,6 +47,15 @@ export function StackMarquee() {
           </li>
         ))}
       </ul>
+      {/* Sans légende, des visiteurs prenaient ces logos pour la technique du site */}
+      <p className="mx-auto mt-4 flex max-w-295 flex-wrap gap-x-3 gap-y-1 px-4 text-xs text-muted sm:px-8">
+        <span>{labels.label}</span>
+        <span aria-hidden className="max-sm:hidden">·</span>
+        <span>
+          {labels.site} ·{" "}
+          <a href={sourceUrl} target="_blank" rel="noopener" className="text-ink underline-offset-2 hover:underline">{labels.source} ↗</a>
+        </span>
+      </p>
     </div>
   );
 }

@@ -119,7 +119,7 @@ export function Hero({ dict, demo }: Props) {
           <span><b className="font-mono text-sm text-ink">{hunterStats.strict}–{hunterStats.verifiable} %</b> {demo.precision}</span>
           <span><b className="font-mono text-sm text-ink">{hunterStats.recall} %</b> {demo.recall}</span>
           <a href="#projets" className="ml-auto font-medium text-accent hover:underline">{demo.link} →</a>
-          <p className="demo-explain basis-full text-[11px] leading-relaxed">{explainMetrics(demo.explain)}</p>
+          <p className="demo-explain basis-full text-xs leading-relaxed">{explainMetrics(demo.explain)}</p>
         </div>
       </div>
     </div>

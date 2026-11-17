@@ -10,6 +10,7 @@ export type ProjectId = keyof Dictionary["projects"]["items"];
 export type Project = {
   id: ProjectId;
   size: "big" | "sm" | "md" | "wide";
+  category: "ai" | "games" | "tools";
   stack: string[];
   href?: string;
   visual?: "engine" | "wheel" | "wave" | "tower" | "artillery" | "verdict" | "agent" | "fan" | "album";
@@ -24,18 +25,18 @@ export const profile = {
 // (les deux projets IA ensemble), Blind Test en grand avec la Roue et TowerDash, Dispatch Dub et le Worms,
 // et enfin les deux outils perso du Raspberry Pi
 export const projects: Project[] = [
-  { id: "hunter", size: "wide", visual: "verdict", stack: ["Python", "Ollama", "Qwen 3", "Wikidata", "SPARQL", "Streamlit", "pytest"], href: "https://github.com/alexxandre80/hallucination-hunter" },
-  { id: "agent", size: "wide", visual: "agent", stack: ["Docker", "OpenCode", "Python", "iptables", "Tailscale", "Raspberry Pi"], href: "https://github.com/alexxandre80/pi-coding-agent" },
-  { id: "blindtest", size: "big", visual: "engine", stack: ["React", "Node.js", "Express", "Socket.io", "PostgreSQL", "Prisma", "Better Auth", "Docker"], href: "https://github.com/alexxandre80/Blindtest-Saas" },
-  { id: "wheel", size: "sm", visual: "wheel", stack: ["JavaScript", "PHP"], href: "https://alexxandre80.github.io/wheel/" },
+  { id: "hunter", category: "ai", size: "wide", visual: "verdict", stack: ["Python", "Ollama", "Qwen 3", "Wikidata", "SPARQL", "Streamlit", "pytest"], href: "https://github.com/alexxandre80/hallucination-hunter" },
+  { id: "agent", category: "ai", size: "wide", visual: "agent", stack: ["Docker", "OpenCode", "Python", "iptables", "Tailscale", "Raspberry Pi"], href: "https://github.com/alexxandre80/pi-coding-agent" },
+  { id: "blindtest", category: "games", size: "big", visual: "engine", stack: ["React", "Node.js", "Express", "Socket.io", "PostgreSQL", "Prisma", "Better Auth", "Docker"], href: "https://github.com/alexxandre80/Blindtest-Saas" },
+  { id: "wheel", category: "tools", size: "sm", visual: "wheel", stack: ["JavaScript", "PHP"], href: "https://alexxandre80.github.io/wheel/" },
   // Pas de lien : la version finale présentée en soutenance n'est pas sur GitHub
-  { id: "towerdash", size: "sm", visual: "tower", stack: ["Unity", "C#", "Photon"] },
-  { id: "dispatch", size: "md", visual: "wave", stack: ["Electron", "Node.js", "GitHub Actions"], href: "https://github.com/alexxandre80/Dispatch-dub" },
-  { id: "worms", size: "md", visual: "artillery", stack: ["Python", "Pygame"], href: "https://github.com/alexxandre80/Projet_Python" },
+  { id: "towerdash", category: "games", size: "sm", visual: "tower", stack: ["Unity", "C#", "Photon"] },
+  { id: "dispatch", category: "games", size: "md", visual: "wave", stack: ["Electron", "Node.js", "GitHub Actions"], href: "https://github.com/alexxandre80/Dispatch-dub" },
+  { id: "worms", category: "games", size: "md", visual: "artillery", stack: ["Python", "Pygame"], href: "https://github.com/alexxandre80/Projet_Python" },
   // Dépôts privés : pas de lien
-  { id: "argon", size: "md", visual: "fan", stack: ["Python", "Flask", "I2C", "systemd", "Raspberry Pi"] },
+  { id: "argon", category: "tools", size: "md", visual: "fan", stack: ["Python", "Flask", "I2C", "systemd", "Raspberry Pi"] },
   // Cardmarket n'est volontairement pas cité (collecte par script) : seulement l'API officielle de CardTrader
-  { id: "album", size: "md", visual: "album", stack: ["Python", "SQLite", "API CardTrader", "Telegram", "cron"] },
+  { id: "album", category: "tools", size: "md", visual: "album", stack: ["Python", "SQLite", "API CardTrader", "Telegram", "cron"] },
 ];
 
 // Résultats publiés de hallucination-hunter (v1, Qwen 3 8B, 22 studios), en pourcentage

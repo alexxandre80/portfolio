@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type PointerEvent } from "react";
+import { useRef, useState, type PointerEvent } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -28,8 +28,14 @@ const spotlight = (e: PointerEvent<HTMLElement>) => {
   e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
 };
 
+const filters = ["all", "ai", "games", "tools"] as const;
+type Filter = (typeof filters)[number];
+
 export function Projects({ dict }: { dict: Dictionary["projects"] }) {
   const scope = useRef<HTMLElement>(null);
+  // Chacun va droit à ce qui l'intéresse : la grille est longue, surtout sur mobile
+  const [filter, setFilter] = useState<Filter>("all");
+  const shown = projects.filter((p) => filter === "all" || p.category === filter);
 
   useGSAP(
     () => {
@@ -50,8 +56,22 @@ export function Projects({ dict }: { dict: Dictionary["projects"] }) {
           </a>
         </SectionHead>
 
+        <div role="group" aria-label={dict.filters.label} className="mb-6 flex flex-wrap gap-2">
+          {filters.map((f) => (
+            <button
+              key={f}
+              type="button"
+              onClick={() => setFilter(f)}
+              aria-pressed={filter === f}
+              className={`cursor-pointer rounded-full border px-3.5 py-2 text-[13px] transition-colors ${filter === f ? "border-accent bg-accent-soft text-ink" : "border-line bg-chip text-muted hover:text-ink"}`}
+            >
+              {dict.filters[f]}
+            </button>
+          ))}
+        </div>
+
         <div className="bento grid gap-4 md:grid-cols-6">
-          {projects.map((p) => {
+          {shown.map((p) => {
             const t = dict.items[p.id];
             const Tag = p.href ? "a" : "div";
             return (
