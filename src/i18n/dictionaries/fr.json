@@ -36,7 +36,7 @@
     ]
   },
   "heroDemo": {
-    "model": "qwen3:8b × Wikidata",
+    "model": "IA locale × Wikidata",
     "prompt": "Quels jeux a faits Naughty Dog ?",
     "confirmed": "confirmé",
     "contradicted": "contredit",

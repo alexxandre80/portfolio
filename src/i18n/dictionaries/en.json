@@ -36,7 +36,7 @@
     ]
   },
   "heroDemo": {
-    "model": "qwen3:8b × Wikidata",
+    "model": "local AI × Wikidata",
     "prompt": "Which games did Naughty Dog make?",
     "confirmed": "confirmed",
     "contradicted": "contradicted",

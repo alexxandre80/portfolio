@@ -54,7 +54,7 @@ export function Hero({ dict, demo }: Props) {
   );
 
   return (
-    <div ref={scope} className="relative z-10 mx-auto grid max-w-295 items-center gap-14 px-4 pt-32 pb-24 sm:px-8 md:pt-42 lg:grid-cols-[1.1fr_1fr]">
+    <div ref={scope} className="relative z-10 mx-auto grid max-w-295 items-center gap-14 px-4 pt-32 pb-14 sm:px-8 md:pt-42 md:pb-24 lg:grid-cols-[1.1fr_1fr]">
       <div>
         <span className="badge glass inline-flex items-center rounded-full px-3 py-1.5 text-[13px] text-muted">{dict.badge}</span>
         <h1 className="mt-6 text-[clamp(38px,5vw,60px)] leading-[1.05] font-semibold tracking-[-0.035em]">

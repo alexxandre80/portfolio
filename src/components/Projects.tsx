@@ -40,7 +40,7 @@ export function Projects({ dict }: { dict: Dictionary["projects"] }) {
   useGSAP(
     () => {
       if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      gsap.from(".head", { y: 20, opacity: 0, duration: 0.7, scrollTrigger: { trigger: ".head", start: "top 85%" } });
+      gsap.from(".head", { y: 20, opacity: 0, duration: 0.7, scrollTrigger: { trigger: ".head", start: "top 98%" } });
       gsap.from(".card", { y: 40, opacity: 0, duration: 0.8, stagger: 0.08, ease: "power3.out", scrollTrigger: { trigger: ".bento", start: "top 80%" } });
     },
     { scope },
