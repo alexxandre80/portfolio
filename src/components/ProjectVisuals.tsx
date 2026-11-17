@@ -7,10 +7,10 @@ import { pauseOffscreen } from "@/lib/pauseOffscreen";
 
 gsap.registerPlugin(useGSAP);
 
-const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+export const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // Cadre commun : le visuel occupe le bas de la carte, bord à bord
-function Frame({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function Frame({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <div className={`relative -mx-6 mt-5 -mb-6 flex-1 overflow-hidden border-t border-line ${className}`} aria-hidden>
       {children}

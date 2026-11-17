@@ -102,6 +102,21 @@
         "tag": "Game · 2019 school project",
         "title": "Worms in Python",
         "desc": "A turn-based artillery game inspired by Worms, built as a duo with Pygame: gravity-based trajectories, randomly generated terrain, several weapons, explosions and health points. A few sleepless nights on the clock."
+      },
+      "agent": {
+        "tag": "AI & infra · used daily",
+        "title": "pi-coding-agent",
+        "desc": "An AI coding agent on my Raspberry Pi, driven from my phone with free models. What matters most is around the agent: it works on a development copy with fake data, inside a container cut off from the rest of the machine and the network. I review every change before deploying it, and if the service doesn't come back up, it rolls back to the previous version on its own."
+      },
+      "argon": {
+        "tag": "Raspberry Pi · used daily",
+        "title": "Argon One Dashboard",
+        "desc": "The dashboard for my Raspberry Pi case: CPU temperature, fan speed and throttling detection. I drive the fan directly over the case's I2C bus, following a curve I tune myself, with a manual mode when needed."
+      },
+      "album": {
+        "tag": "Data · side project",
+        "title": "30th Anniversary Album",
+        "desc": "Tracking my collection of Pokémon cards from the 30th anniversary series: owned and missing cards, each card's price with its trend and history, and buying advice when a new release is likely to move prices, with alerts on Telegram."
       }
     },
     "hunter": {
@@ -116,7 +131,27 @@
       "scope": "Across the 22 studios"
     },
     "linkCode": "Code",
-    "linkTry": "Try it"
+    "linkTry": "Try it",
+    "agent": {
+      "phone": "Phone",
+      "prompt": "“make the buttons bigger on mobile”",
+      "dev": "DEV",
+      "devSub": "fake data",
+      "review": "Review",
+      "reviewSub": "2 files reviewed",
+      "prod": "PROD",
+      "prodOk": "live",
+      "quota": "free models · $0 spent"
+    },
+    "fan": {
+      "temp": "temperature",
+      "fan": "fan"
+    },
+    "album": {
+      "owned": "cards",
+      "trend": "price",
+      "tip": "advice: wait for the next release"
+    }
   },
   "journey": {
     "eyebrow": "Experience",

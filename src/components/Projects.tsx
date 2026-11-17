@@ -10,6 +10,7 @@ import { Blobs } from "./Blobs";
 import { SectionHead } from "./SectionHead";
 import { EngineDiagram } from "./EngineDiagram";
 import { ArtilleryVisual, TowerVisual, VerdictVisual, WaveVisual, WheelVisual } from "./ProjectVisuals";
+import { AgentVisual, AlbumVisual, FanVisual } from "./MoreVisuals";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -79,6 +80,9 @@ export function Projects({ dict }: { dict: Dictionary["projects"] }) {
                 {p.visual === "tower" && <TowerVisual />}
                 {p.visual === "artillery" && <ArtilleryVisual labels={dict.artillery} />}
                 {p.visual === "verdict" && <VerdictVisual labels={dict.hunter} stats={hunterStats} />}
+                {p.visual === "agent" && <AgentVisual labels={dict.agent} />}
+                {p.visual === "fan" && <FanVisual labels={dict.fan} />}
+                {p.visual === "album" && <AlbumVisual labels={dict.album} />}
                 {!p.visual && <Chips items={p.stack} />}
               </Tag>
             );

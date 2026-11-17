@@ -102,6 +102,21 @@
         "tag": "Jeu · projet d'études 2019",
         "title": "Un Worms en Python",
         "desc": "Un jeu d'artillerie au tour par tour inspiré de Worms, codé à deux avec Pygame : trajectoires calculées avec la gravité, terrain généré aléatoirement, plusieurs armes, explosions et points de vie. Quelques nuits blanches au compteur."
+      },
+      "agent": {
+        "tag": "IA & infra · utilisé au quotidien",
+        "title": "pi-coding-agent",
+        "desc": "Un agent IA de code sur mon Raspberry Pi, que je pilote depuis mon téléphone avec des modèles gratuits. Le plus important est autour de l'agent : il travaille sur une copie de développement avec des données fictives, dans un conteneur coupé du reste de la machine et du réseau. Je relis chaque modification avant de la déployer, et si le service ne repart pas, retour automatique à la version précédente."
+      },
+      "argon": {
+        "tag": "Raspberry Pi · utilisé au quotidien",
+        "title": "Argon One Dashboard",
+        "desc": "Le tableau de bord du boîtier de mon Raspberry Pi : température du processeur, vitesse du ventilateur et détection de surchauffe. Je pilote le ventilateur directement par le bus I2C du boîtier, selon une courbe que je règle moi-même, avec un mode manuel quand il faut."
+      },
+      "album": {
+        "tag": "Données · projet perso",
+        "title": "Album 30ᵉ Anniversaire",
+        "desc": "Le suivi de ma collection de cartes Pokémon de la série 30ᵉ anniversaire : cartes possédées et manquantes, cote de chaque carte avec sa tendance et son historique, et un conseil d'achat quand une sortie risque de faire bouger les prix, avec des alertes sur Telegram."
       }
     },
     "hunter": {
@@ -116,7 +131,27 @@
       "scope": "Sur les 22 studios"
     },
     "linkCode": "Code",
-    "linkTry": "Essayer"
+    "linkTry": "Essayer",
+    "agent": {
+      "phone": "Téléphone",
+      "prompt": "« agrandis les boutons sur mobile »",
+      "dev": "DEV",
+      "devSub": "données fictives",
+      "review": "Relecture",
+      "reviewSub": "2 fichiers relus",
+      "prod": "PROD",
+      "prodOk": "en ligne",
+      "quota": "modèles gratuits · 0 $ dépensé"
+    },
+    "fan": {
+      "temp": "température",
+      "fan": "ventilateur"
+    },
+    "album": {
+      "owned": "cartes",
+      "trend": "cote",
+      "tip": "conseil : attendre la prochaine sortie"
+    }
   },
   "journey": {
     "eyebrow": "Parcours",
